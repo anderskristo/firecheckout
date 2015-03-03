@@ -4,13 +4,13 @@ class Billmate_BillmateInvoice_Model_Quote_TaxTotal extends Mage_Sales_Model_Quo
 {
     public function collect(Mage_Sales_Model_Quote_Address $address)
     {
-		$page = $_SERVER['REQUEST_URI'];
+		/*$page = $_SERVER['REQUEST_URI'];
 		$onepage = "checkout/cart";
 		$onepagecheck = strpos($page, $onepage);
 
 		if ($onepagecheck !== false) {
 			parent::collect($address);
-		}
+		}*/
         $collection = $address->getQuote()->getPaymentsCollection();
         if ($collection->count() <= 0 || $address->getQuote()->getPayment()->getMethod() == null) {
             return $this;
