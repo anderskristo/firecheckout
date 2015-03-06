@@ -11,21 +11,21 @@ $customerData['email'] = Mage::getSingleton('checkout/session')
  ?>
 <ul class="form-list" id="payment_form_<?php echo $_code ?>" style="display:none;">
     <li>
-        <img src="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA) ?>/billmate/images/bm_delbetalning_l.png" />
+        <img src="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA) ?>billmate/images/bm_delbetalning_l.png" />
     </li>
     <li class="payment_person_number" style="display:none">
         <label for="<?php echo $_code ?>_pno" class="required"><em>*</em><?php echo $this->__('Personal Number') ?></label>
         <div class="input-box">
             <input type="text" title="<?php echo $this->__('Personal Number') ?>" class="input-text required-entry" id="<?php echo $_code ?>_pno" name="payment[<?php echo $_code ?>_pno]" value="" />
         </div>
-    </li> 
+    </li>
     <li>
         <label for="<?php echo $_code ?>_phone" class="required"><em>*</em><?php echo $this->__('Payment Options') ?></label>
         <div class="input-box">
 			<select name="pclass" id="pclass">
 			<?php
 				$terms = $this->termsx();
-				$currency = Mage::app()->getStore()->getCurrentCurrencyCode(); 
+				$currency = Mage::app()->getStore()->getCurrentCurrencyCode();
 				foreach( $terms as $term ){
 					$label = $term['description']. ' '.round( Mage::helper('core')->currency( $term['monthly_cost'], false, true),2).' '.$currency.' / per '. Mage::helper('payment')->__('Month');
 					echo '<option value="'.$term['pclass_id'].'">'.$label.'</option>';
