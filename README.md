@@ -11,14 +11,17 @@ insert following code in billing.phtml and this file can found under
 app\design\frontend\default\hultens\template\firecheckout\checkout or app\design\frontend\default\default\template\firecheckout\checkout )
 
 
-$fields['person_number'] => array(
-           'class'  => 'input-text',
-           'label'  => 'Person Number',
-           'status' => 'required'
-       );
+```php
+$fields['person_number'] = array(
+   'class'  => 'input-text',
+   'label'  => 'Person Number',
+   'status' => 'required'
+);
+```
 
-after 
+after
 
+```php
    $fields = array(
        'name'  => array(),
        'email' => array(
@@ -76,5 +79,6 @@ after
            'status' => (!$_isCustomerLoggedIn && $_taxvat->isEnabled()) ? 'optional' : 'hidden'
        )
    );
+```
 
 edit file \app\code\local\TM\FireCheckout\etc\system.xml
